@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import axios from 'axios';
 import white6table from './imgs/white6table.jpeg';
 import white4table from './imgs/white4table.jpeg';
 import white2table from './imgs/white2table.jpeg';
@@ -16,6 +17,17 @@ import backg from './imgs/backg.jpeg';
 const ImageChanger = ({ imageNumber }) => {
   const [imageColor, setImageColor] = useState('white');
   const [clickedImage, setClickedImage] = useState(null);
+  const [date, setDate] = useState('');
+  const [timeSlot, setTimeSlot] = useState('');
+
+  const handleReservation = async () => {
+    try {
+      await axios.post('/api/reserve', { date, timeSlot, imageId: clickedImage });
+
+    } catch (error) {
+    }
+  };
+
 
   const changeImage = (imageElement) => {
     if (imageElement.src.includes("white6table")) {
@@ -79,39 +91,39 @@ const ImageChanger = ({ imageNumber }) => {
         <div className="interior_rest">
           <table>
             <tr>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_611' ? 'clicked' : ''}`} id={`main_img_611`} onClick={() => changeImage(document.getElementById('main_img_611'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_612' ? 'clicked' : ''}`} id={`main_img_612`} onClick={() => changeImage(document.getElementById('main_img_612'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_613' ? 'clicked' : ''}`} id={`main_img_613`} onClick={() => changeImage(document.getElementById('main_img_613'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_614' ? 'clicked' : ''}`} id={`main_img_614`} onClick={() => changeImage(document.getElementById('main_img_614'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_615' ? 'clicked' : ''}`} id={`main_img_615`} onClick={() => changeImage(document.getElementById('main_img_615'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_611' ? 'clicked' : ''}`} id={`main_611`} onClick={() => changeImage(document.getElementById('main_611'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_612' ? 'clicked' : ''}`} id={`main_612`} onClick={() => changeImage(document.getElementById('main_612'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_613' ? 'clicked' : ''}`} id={`main_613`} onClick={() => changeImage(document.getElementById('main_613'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_614' ? 'clicked' : ''}`} id={`main_614`} onClick={() => changeImage(document.getElementById('main_614'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_615' ? 'clicked' : ''}`} id={`main_615`} onClick={() => changeImage(document.getElementById('main_615'))}/></td>
               <td><img src={toilet} className="img3" /></td>
             </tr>
             <tr>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_421' ? 'clicked' : ''}`} id={`main_img_421`} onClick={() => changeImage2(document.getElementById('main_img_421'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_421' ? 'clicked' : ''}`} id={`main_421`} onClick={() => changeImage2(document.getElementById('main_421'))}/></td>
               <td></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_223' ? 'clicked' : ''}`} id={`main_img_223`} onClick={() => changeImage3(document.getElementById('main_img_223'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_223' ? 'clicked' : ''}`} id={`main_223`} onClick={() => changeImage3(document.getElementById('main_223'))}/></td>
               <td></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_425' ? 'clicked' : ''}`} id={`main_img_425`} onClick={() => changeImage2(document.getElementById('main_img_425'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_425' ? 'clicked' : ''}`} id={`main_425`} onClick={() => changeImage2(document.getElementById('main_425'))}/></td>
             </tr>
             <tr>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_431' ? 'clicked' : ''}`} id={`main_img_431`} onClick={() => changeImage2(document.getElementById('main_img_431'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_232' ? 'clicked' : ''}`} id={`main_img_232`} onClick={() => changeImage3(document.getElementById('main_img_232'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_233' ? 'clicked' : ''}`} id={`main_img_233`} onClick={() => changeImage3(document.getElementById('main_img_233'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_234' ? 'clicked' : ''}`} id={`main_img_234`} onClick={() => changeImage3(document.getElementById('main_img_234'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_435' ? 'clicked' : ''}`} id={`main_img_435`} onClick={() => changeImage2(document.getElementById('main_img_435'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_431' ? 'clicked' : ''}`} id={`main_431`} onClick={() => changeImage2(document.getElementById('main_431'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_232' ? 'clicked' : ''}`} id={`main_232`} onClick={() => changeImage3(document.getElementById('main_232'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_233' ? 'clicked' : ''}`} id={`main_233`} onClick={() => changeImage3(document.getElementById('main_233'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_234' ? 'clicked' : ''}`} id={`main_234`} onClick={() => changeImage3(document.getElementById('main_234'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_435' ? 'clicked' : ''}`} id={`main_435`} onClick={() => changeImage2(document.getElementById('main_435'))}/></td>
             </tr>
             <tr>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_441' ? 'clicked' : ''}`} id={`main_img_441`} onClick={() => changeImage2(document.getElementById('main_img_441'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_441' ? 'clicked' : ''}`} id={`main_441`} onClick={() => changeImage2(document.getElementById('main_441'))}/></td>
               <td></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_243' ? 'clicked' : ''}`} id={`main_img_243`} onClick={() => changeImage3(document.getElementById('main_img_243'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_243' ? 'clicked' : ''}`} id={`main_243`} onClick={() => changeImage3(document.getElementById('main_243'))}/></td>
               <td></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_445' ? 'clicked' : ''}`} id={`main_img_445`} onClick={() => changeImage2(document.getElementById('main_img_445'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_445' ? 'clicked' : ''}`} id={`main_445`} onClick={() => changeImage2(document.getElementById('main_445'))}/></td>
             </tr>
             <tr>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_451' ? 'clicked' : ''}`} id={`main_img_451`} onClick={() => changeImage2(document.getElementById('main_img_451'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_452' ? 'clicked' : ''}`} id={`main_img_452`} onClick={() => changeImage2(document.getElementById('main_img_452'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_653' ? 'clicked' : ''}`} id={`main_img_653`} onClick={() => changeImage(document.getElementById('main_img_653'))}/></td>
-              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_img_654' ? 'clicked' : ''}`} id={`main_img_654`} onClick={() => changeImage(document.getElementById('main_img_654'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_451' ? 'clicked' : ''}`} id={`main_451`} onClick={() => changeImage2(document.getElementById('main_451'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_452' ? 'clicked' : ''}`} id={`main_452`} onClick={() => changeImage2(document.getElementById('main_452'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_653' ? 'clicked' : ''}`} id={`main_653`} onClick={() => changeImage(document.getElementById('main_653'))}/></td>
+              <td><img src={getImageSource(`./imgs/${getImageSource()}`)} className={`img ${clickedImage === 'main_654' ? 'clicked' : ''}`} id={`main_654`} onClick={() => changeImage(document.getElementById('main_654'))}/></td>
             </tr>
           </table>
         </div>
